@@ -199,56 +199,13 @@ img,svg{ max-width:100%; display:block; }
 .hero-trust{ padding:0; }
 .hero-trust svg{ width:18px; height:18px; flex:none; color:var(--accent); margin-top:2px; }
 
-/* Abstract laser device illustration */
+/* Hero contact card */
 .hero-visual{ position:relative; display:flex; align-items:center; justify-content:center; }
-.device-card{
-  position:relative; width:min(360px, 90%); aspect-ratio:3/4;
-  background:linear-gradient(165deg, #ffffff 0%, var(--bg-alt) 100%);
-  border:1px solid var(--line); border-radius:36px;
-  box-shadow:var(--shadow-lg);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px;
-  padding:32px;
-}
-.device-body{
-  width:64%; aspect-ratio:1/2.15; border-radius:40px;
-  background:linear-gradient(180deg, #fff 0%, #f0eefb 70%);
-  border:1px solid var(--line);
-  box-shadow: inset 0 2px 4px rgba(255,255,255,.9), var(--shadow-sm);
-  position:relative;
-  display:flex; flex-direction:column; align-items:center; padding-top:14%;
-}
-.device-window{
-  width:56%; aspect-ratio:1/1.3; border-radius:18px;
-  background:radial-gradient(circle at 50% 35%, #fff 0%, var(--accent-soft) 55%, var(--accent-2-soft) 100%);
-  box-shadow: inset 0 0 0 1px rgba(30,111,224,.25);
-  animation: pulseFlash 2.6s ease-in-out infinite;
-}
-@keyframes pulseFlash{
-  0%,100%{ box-shadow: inset 0 0 0 1px rgba(30,111,224,.25), 0 0 0 0 rgba(30,111,224,0); }
-  50%{ box-shadow: inset 0 0 0 1px rgba(30,111,224,.35), 0 0 34px 6px rgba(30,111,224,.28); }
-}
-.device-led{ width:8px; height:8px; border-radius:50%; background:var(--accent-2); margin-top:14px; }
-.beam-ring{
-  position:absolute; inset:0; border-radius:50%;
-  border:1px dashed var(--accent-2-soft);
-}
-.beam-ring.r1{ inset:-10%; animation: spin 30s linear infinite; }
-.beam-ring.r2{ inset:6%; border-color:var(--accent-soft); animation: spin 42s linear infinite reverse; }
-@keyframes spin{ to{ transform:rotate(360deg); } }
-.floaty-badge{
-  position:absolute; background:#fff; border:1px solid var(--line); border-radius:14px;
-  padding:10px 14px; box-shadow:var(--shadow-sm);
-  font-size:.78rem; font-weight:700; font-family:var(--font-display);
-  display:flex; align-items:center; gap:8px;
-}
-.floaty-badge.b1{ top:6%; left:-4%; }
-.floaty-badge.b2{ bottom:8%; right:-6%; }
-.floaty-badge .dot{ width:7px; height:7px; border-radius:50%; background:var(--whatsapp); }
+.hero-contact-card{ width:100%; max-width:400px; box-shadow:var(--shadow-lg); }
 
 @media (max-width: 960px){
   .hero .container{ grid-template-columns:1fr; }
   .hero-visual{ order:-1; }
-  .device-card{ width:min(300px, 78%); }
 }
 
 /* ---------- Beam divider (signature) ---------- */
