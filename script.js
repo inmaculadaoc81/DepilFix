@@ -40,6 +40,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Revelado progresivo al hacer scroll (mejora visual, no bloquea contenido)
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var revealObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    // Sin soporte: mostrar todo directamente
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+
   // Resaltar enlace de navegación activo al hacer scroll
   var sections = document.querySelectorAll('main section[id]');
   var navAnchors = document.querySelectorAll('.nav-links a');

@@ -5,10 +5,18 @@ Landing page one-page, responsive, para el servicio de reparación de depiladora
 ## Archivos
 
 - `index.html` — página única con todo el contenido y los datos Schema.org (LocalBusiness + FAQPage)
-- `styles.css` — estilos (fondo blanco, tipografía Space Grotesk + Inter)
-- `script.js` — menú móvil, acordeón de FAQ, año dinámico del footer
+- `styles.css` — estilos (fondo blanco, acentos en azul/violeta de marca, tipografía Space Grotesk + Inter)
+- `script.js` — menú móvil, acordeón de FAQ, año dinámico del footer, animaciones de aparición al hacer scroll
+- `assets/` — logo, isotipo, favicons y fotografías reales del taller, optimizados en JPG/WebP
 - `robots.txt` / `sitemap.xml` — SEO técnico básico
 - `CNAME` — dominio personalizado para GitHub Pages
+
+## Diseño e imágenes
+
+- El logo y el isotipo son los que proporcionaste, recortados y exportados en varios tamaños (`logo-depilfix.png`, `isotype-*.png`, favicons y `apple-touch-icon.png`).
+- La foto del hero y la imagen de la sección "Nuestro taller" están recortadas de tu fotografía original (sin el logo incrustado, para no duplicarlo junto al logo del header). Cada una se sirve en WebP con fallback a JPG y en versión móvil/escritorio para no penalizar el rendimiento.
+- La paleta de acento (`--accent` / `--accent-2`) se tomó directamente de los colores del gradiente de tu isotipo.
+- Las animaciones de aparición al hacer scroll son progresivas: si el usuario tiene JavaScript desactivado o "reducir movimiento" activado, todo el contenido se muestra igualmente sin animación.
 
 ## Publicar en GitHub Pages
 
@@ -29,7 +37,6 @@ Landing page one-page, responsive, para el servicio de reparación de depiladora
 
 ## Antes de publicar, revisa
 
-- **Teléfono fijo**: se usó `+34 918 294 660` para "Atención telefónica" según los datos facilitados. Confírmalo.
 - **Testimonios**: la sección "Opiniones" tiene 3 reseñas de ejemplo — sustitúyelas por opiniones reales de clientes antes de publicar.
-- **Imagen Open Graph**: las etiquetas `og:image` apuntan a `/assets/og-image.png`, que aún no existe. Añade una imagen 1200×630px en esa ruta o quita las etiquetas.
 - **Coordenadas del mapa**: el `geo` del Schema.org usa coordenadas aproximadas del barrio de Chamberí, Madrid; ajústalas si tienes las exactas.
+- **Mapa embebido**: en este entorno de pruebas no carga por no tener acceso a internet real; en tu navegador y una vez publicado en GitHub Pages funcionará con normalidad.
