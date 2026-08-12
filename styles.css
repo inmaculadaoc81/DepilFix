@@ -181,75 +181,80 @@ img,svg{ max-width:100%; display:block; }
 }
 
 /* ---------- Hero ---------- */
-.hero{ position:relative; overflow:hidden; padding:72px 0 56px; }
-.hero .container{
-  display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;
-}
-.hero-copy .lede{ font-size:1.12rem; max-width:46ch; }
-.hero-brands{ display:flex; align-items:center; gap:18px; margin:28px 0 30px; flex-wrap:wrap; }
-.brand-chip{
-  display:flex; align-items:center; gap:8px;
-  font-family:var(--font-display); font-weight:700; letter-spacing:.02em;
-  border:1px solid var(--line); border-radius:999px; padding:8px 16px 8px 10px;
-  background:#fff;
-}
-.brand-chip .dot{ width:8px; height:8px; border-radius:50%; }
-.brand-chip.braun .dot{ background:var(--accent); }
-.brand-chip.philips .dot{ background:var(--accent-2); }
-
-.hero-trust{ display:flex; gap:22px; flex-wrap:wrap; margin-top:30px; }
-.hero-trust li{ list-style:none; display:flex; gap:10px; align-items:flex-start; font-size:.86rem; color:var(--ink-soft); max-width:190px; }
-.hero-trust{ padding:0; }
-.hero-trust svg{ width:18px; height:18px; flex:none; color:var(--accent); margin-top:2px; }
-
-/* Hero photo (foto real del taller) */
-.hero-visual{ position:relative; display:flex; align-items:center; justify-content:center; }
-.hero-blob{
-  position:absolute; width:120%; height:120%; z-index:0;
-  background: radial-gradient(closest-side, var(--accent-soft), transparent 70%),
-              radial-gradient(closest-side, var(--accent-2-soft), transparent 65%) ;
-  background-position: 15% 20%, 85% 80%;
-  background-repeat:no-repeat;
-  background-size: 65% 65%, 60% 60%;
-  filter: blur(2px);
-  pointer-events:none;
-}
-.device-card{
-  position:relative; z-index:1; width:min(400px, 92%);
-  border-radius:32px; overflow:hidden;
-  box-shadow:var(--shadow-lg);
-  border:1px solid var(--line);
+.hero{
+  position:relative; overflow:hidden;
+  padding:64px 0;
+  background: linear-gradient(120deg, #071642 0%, #0a4fd0 45%, #6a1af3 100%);
   isolation:isolate;
 }
-.device-card img{
-  width:100%; height:100%; object-fit:cover; display:block;
-  aspect-ratio: 3/4;
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background: radial-gradient(60% 80% at 90% 0%, rgba(255,255,255,.14), transparent 60%);
 }
-.device-card::after{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(200deg, rgba(10,99,246,.16) 0%, rgba(0,0,0,0) 38%);
-  pointer-events:none;
+.hero-grid{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:start;
 }
-.floaty-badge{
-  position:absolute; z-index:2; background:rgba(255,255,255,.92);
-  backdrop-filter:blur(8px);
-  border:1px solid var(--line); border-radius:14px;
-  padding:10px 14px; box-shadow:var(--shadow-lg);
-  font-size:.78rem; font-weight:700; font-family:var(--font-display);
-  display:flex; align-items:center; gap:8px;
+.hero-copy h1{ color:#fff; }
+.hero-copy h1 em{ font-style:italic; color:#dbe6ff; }
+.hero-copy .lede{ font-size:1.12rem; max-width:48ch; color:rgba(255,255,255,.86); }
+.hero-copy .lede strong{ color:#fff; }
+
+.eyebrow--onDark{
+  background:rgba(255,255,255,.14); color:#fff;
 }
-.floaty-badge.b1{ top:7%; left:-6%; }
-.floaty-badge.b2{ bottom:9%; right:-7%; }
-.floaty-badge .dot{ width:7px; height:7px; border-radius:50%; background:var(--whatsapp); flex:none; }
-.floaty-badge .dot--brand{ background:var(--brand-gradient); }
+.eyebrow--onDark::before{ background:#fff; box-shadow:0 0 0 4px rgba(255,255,255,.22); }
+
+.hero-trust{ display:flex; gap:22px; flex-wrap:wrap; margin-top:30px; padding:0; }
+.hero-trust li{ list-style:none; display:flex; gap:10px; align-items:flex-start; font-size:.86rem; color:var(--ink-soft); max-width:200px; }
+.hero-trust svg{ width:18px; height:18px; flex:none; color:var(--accent); margin-top:2px; }
+.hero-trust--onDark li{ color:rgba(255,255,255,.82); }
+.hero-trust--onDark svg{ color:#fff; }
+
+.btn--dark{ background:#0c0f1a; color:#fff; }
+.btn--dark:hover{ background:#000; box-shadow:var(--shadow-lg); transform:translateY(-2px); }
+.btn--white{ background:#fff; color:var(--ink); }
+.btn--white svg{ color:var(--accent); }
+.btn--white:hover{ box-shadow:var(--shadow-lg); transform:translateY(-2px); }
+
+/* ---------- Panel de información de contacto (banner tipo tarjeta) ---------- */
+.contact-banner{
+  background:#0b0e18; border-radius:var(--radius-lg);
+  padding:30px 30px 26px; box-shadow:var(--shadow-lg);
+  border:1px solid rgba(255,255,255,.08);
+}
+.contact-banner h2{ color:#fff; font-size:1.15rem; margin-bottom:18px; }
+.contact-banner-row{
+  display:flex; gap:14px; padding:16px 0; border-top:1px solid rgba(255,255,255,.1);
+}
+.contact-banner-row:first-of-type{ border-top:none; padding-top:0; }
+.contact-banner-row .ico{
+  flex:none; width:38px; height:38px; border-radius:10px;
+  background:var(--brand-gradient); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+}
+.contact-banner-row .ico svg{ width:18px; height:18px; }
+.contact-banner-row h3{ color:#fff; font-size:.92rem; margin-bottom:3px; }
+.contact-banner-row p{ color:rgba(255,255,255,.72); font-size:.86rem; margin:0; line-height:1.5; }
+.contact-banner-row p strong{ color:rgba(255,255,255,.9); }
+
+.contact-banner-whatsapp{
+  display:flex; flex-direction:column; gap:6px;
+  margin-top:20px; padding:16px 18px; border-radius:14px;
+  background:var(--whatsapp); text-decoration:none;
+}
+.contact-banner-whatsapp .label{ color:rgba(255,255,255,.92); font-size:.78rem; font-weight:700; }
+.contact-banner-whatsapp .number{
+  display:flex; align-items:center; gap:10px;
+  color:#fff; font-family:var(--font-display); font-weight:700; font-size:1.25rem;
+}
 
 @media (max-width: 960px){
-  .hero .container{ grid-template-columns:1fr; }
-  .hero-visual{ order:-1; margin-bottom:8px; }
-  .device-card{ width:min(320px, 84%); }
-  .floaty-badge{ font-size:.7rem; padding:8px 11px; }
-  .floaty-badge.b1{ left:-2%; }
-  .floaty-badge.b2{ right:-2%; }
+  .hero-grid{ grid-template-columns:1fr; gap:36px; }
+  .contact-banner{ padding:26px 22px; }
+}
+@media (max-width: 560px){
+  .hero{ padding:44px 0; }
+  .contact-banner-whatsapp .number{ font-size:1.05rem; }
 }
 
 /* ---------- Beam divider (signature) ---------- */

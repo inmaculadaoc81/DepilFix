@@ -5,18 +5,18 @@ Landing page one-page, responsive, para el servicio de reparación de depiladora
 ## Archivos
 
 - `index.html` — página única con todo el contenido y los datos Schema.org (LocalBusiness + FAQPage)
-- `styles.css` — estilos (fondo blanco, acentos en azul/violeta de marca, tipografía Space Grotesk + Inter)
+- `styles.css` — estilos (fondo blanco, banner principal en gradiente azul/violeta de marca, tipografía Space Grotesk + Inter)
 - `script.js` — menú móvil, acordeón de FAQ, año dinámico del footer, animaciones de aparición al hacer scroll
-- `assets/` — logo, isotipo, favicons y fotografías reales del taller, optimizados en JPG/WebP
+- Imágenes (logo, isotipo, favicons, foto del taller) en la **raíz del repositorio**, junto a `index.html`
 - `robots.txt` / `sitemap.xml` — SEO técnico básico
 - `CNAME` — dominio personalizado para GitHub Pages
 
 ## Diseño e imágenes
 
-- El logo y el isotipo son los que proporcionaste, recortados y exportados en varios tamaños (`logo-depilfix.png`, `isotype-*.png`, favicons y `apple-touch-icon.png`).
-- La foto del hero y la imagen de la sección "Nuestro taller" están recortadas de tu fotografía original (sin el logo incrustado, para no duplicarlo junto al logo del header). Cada una se sirve en WebP con fallback a JPG y en versión móvil/escritorio para no penalizar el rendimiento.
+- Todas las rutas de imagen son relativas a la raíz (`logo-depilfix.png`, `og-image.jpg`, etc.), igual que están subidas en tu repositorio de GitHub — así se cargan sin necesidad de subcarpetas.
+- El banner principal (hero) ya no lleva foto: es un bloque de color con el gradiente de marca (azul → violeta) y, a la derecha, una tarjeta oscura con la información de contacto (dirección, horario, teléfono, metro cercano y un aviso de WhatsApp), igual que en la referencia que enviaste.
+- La foto real de tu taller se usa más abajo, en la sección "Nuestro taller".
 - La paleta de acento (`--accent` / `--accent-2`) se tomó directamente de los colores del gradiente de tu isotipo.
-- Las animaciones de aparición al hacer scroll son progresivas: si el usuario tiene JavaScript desactivado o "reducir movimiento" activado, todo el contenido se muestra igualmente sin animación.
 
 ## Publicar en GitHub Pages
 
@@ -34,6 +34,10 @@ Landing page one-page, responsive, para el servicio de reparación de depiladora
      185.199.111.153
      ```
 6. Activa "Enforce HTTPS" en GitHub Pages una vez el DNS haya propagado (puede tardar unas horas).
+
+## Subir a GitHub
+
+Sube **todos** los archivos de esta carpeta directamente a la raíz de tu repositorio (no dentro de una subcarpeta `assets/` ni ninguna otra) — así coincide con las rutas que usa `index.html`.
 
 ## Antes de publicar, revisa
 
