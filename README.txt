@@ -49,9 +49,38 @@ REVISIÓN (primera pasada en esta sesión):
   taller multimarca genérico).
 
 PENDIENTE (no resuelto, no inventado):
-- Enlace de Google Business propio para el schema.org "sameAs" (si el
-  cliente tiene la ficha).
 - Testimonios de ejemplo en la sección "Opiniones" (marcado ya en el
   README.md original como pendiente de sustituir por reseñas reales).
 - Coordenadas geo del schema.org son aproximadas (barrio de Chamberí);
   ajustar si se dispone de las exactas.
+
+REVISIÓN ADICIONAL (checklist unificado de la familia, a petición del cliente):
+- RESUELTO — Google Business, antes pendiente: el cliente proporcionó
+  la ficha real (https://maps.app.goo.gl/uhYTWsGAbexRSebp6). Añadida
+  al sameAs del schema.org, al mapa embebido (antes solo mostraba la
+  dirección genérica sin nombre de ficha; sustituido por el iframe de
+  la ficha real "DepilFix Servicio Técnico de Depiladoras", place_id
+  0xa19fbcf50dff4e09:0x8461cdcf1bb22c0d) y como enlace "Ver ficha y
+  reseñas en Google →" debajo del mapa, en la sección de contacto.
+- Se mantiene sin formulario, sin agenda (Cal.com) y sin ficha
+  vinculada a un backend: confirmado por el cliente que es la
+  configuración correcta para este repositorio (no usa Vercel ni
+  SMTP).
+- H1 repetía la plantilla "no funciona" ("Tu depiladora Braun o
+  Philips no funciona. Aquí la reparamos."). Reescrito: "Repara tu
+  depiladora Braun o Philips con garantía." (8 palabras, sigue
+  incluyendo ambas marcas ya que el negocio trabaja específicamente
+  con esas dos).
+- BUG REAL — el horario (en dos sitios: banner de contacto del hero y
+  tarjeta de la sección de contacto) decía "Sábados y Domingos:
+  Cerrado", sin mencionar festivos. Corregido a "Sábados, domingos y
+  días festivos estamos cerrados" en ambos sitios.
+- BUG REAL — no existía franja de aviso de servicio técnico
+  independiente debajo del menú. Añadida: aplica aquí porque el
+  negocio repara marcas de terceros específicas (Braun y Philips).
+  Verificado antes que .site-header no usa display:flex directamente,
+  solo su .nav interno.
+- Verificado sin bugs: no existe ningún elemento tipo hero-chip/pill
+  rotado; no hay ningún texto decorativo gigante tipo watermark; los
+  tres botones CTA del hero (WhatsApp, recogida, teléfono) ya tenían
+  icono.
