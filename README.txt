@@ -84,3 +84,25 @@ REVISIÓN ADICIONAL (checklist unificado de la familia, a petición del cliente)
   rotado; no hay ningún texto decorativo gigante tipo watermark; los
   tres botones CTA del hero (WhatsApp, recogida, teléfono) ya tenían
   icono.
+
+REVISIÓN ADICIONAL (checklist unificado de la familia, a petición del cliente — repo 42/48):
+- Verificado: enlace de Cal.com ya actualizado con
+  attendeePhoneNumber y overlayCalendar.
+- Verificado: el correo soporte@kelatos.com no aparece visible.
+- Verificado: el mensaje prellenado de WhatsApp ya decía "¡Hola
+  DepilFix!".
+- Verificado: el menú móvil (#navLinks/#navToggle) ya tenía su propio
+  script de cierre al pulsar un enlace, en script.js.
+- Verificado: sin iconos ni imágenes con proporciones fijas
+  incorrectas.
+- BUG REAL — el H1 usaba clamp(2.1rem,4.4vw,3.6rem), con un mínimo de
+  2.1rem (33.6px) en pantallas estrechas, sin ninguna regla de móvil
+  que lo corrigiera. Corregido el mínimo a 3rem (48px):
+  clamp(3rem,4.4vw,3.6rem).
+- Verificado: los botones (.btn) ya tenían border-radius:999px y
+  estados hover propios en las cuatro variantes (whatsapp/laser/
+  dark/white). No requerían cambios.
+- Verificado: la franja de aviso de servicio técnico independiente ya
+  estaba presente debajo del menú.
+- Verificado: este repo no usa el patrón de franja de insignias bajo
+  el H1 (familia Dyson); no aplica la reubicación.
