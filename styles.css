@@ -447,7 +447,38 @@ img,svg{ max-width:100%; display:block; }
 .map-frame iframe{ width:100%; height:100%; border:0; }
 .maplink{ display:inline-block; margin-top:14px; color:var(--accent); font-weight:700; }
 
+.cal-frame{ width:100%; height:720px; border:0; border-radius:var(--radius-lg); box-shadow:var(--shadow-sm); }
+
+.contact-form-card{
+  background:var(--bg-alt); border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:36px; box-shadow:var(--shadow-sm); margin-top:32px;
+}
+.contact-form-card h3{ font-family:var(--font-display); font-size:1.3rem; margin-bottom:6px; }
+.contact-form-card > p{ color:var(--ink-soft); margin-bottom:22px; }
+.contact-form-card .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.contact-form-card label{ display:block; margin-bottom:16px; font-weight:600; font-size:.9rem; color:var(--ink); }
+.contact-form-card input,
+.contact-form-card textarea{
+  width:100%; margin-top:6px; padding:12px 14px; border:1px solid var(--line); border-radius:var(--radius-sm);
+  background:#fff; font:inherit; font-size:.95rem; color:var(--ink); outline:none;
+}
+.contact-form-card input:focus,
+.contact-form-card textarea:focus{ border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+.contact-form-card textarea{ resize:vertical; min-height:110px; }
+.hp-field{ position:absolute !important; left:-9999px !important; width:1px !important; height:1px !important; opacity:0 !important; }
+.form-check{ display:flex !important; align-items:flex-start; gap:10px; font-weight:500 !important; }
+.form-check input{ width:auto; margin-top:3px; }
+.privacy-link{ color:var(--accent); text-decoration:underline; }
+.form-status{ margin:12px 0 0; font-weight:600; font-size:.9rem; min-height:1.2em; }
+.form-status[data-state="ok"]{ color:#178a4c; }
+.form-status[data-state="error"]{ color:#c53030; }
+
 @media (max-width: 860px){ .contact-grid{ grid-template-columns:1fr; } }
+@media (max-width: 560px){
+  .cal-frame{ height:760px; }
+  .contact-form-card{ padding:24px 20px; }
+  .contact-form-card .form-row{ grid-template-columns:1fr; }
+}
 
 /* ---------- Final CTA band ---------- */
 .cta-band{

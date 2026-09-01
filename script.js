@@ -57,6 +57,60 @@ document.addEventListener('DOMContentLoaded', function () {
     revealEls.forEach(function (el) { el.classList.add('in-view'); });
   }
 
+  // Formulario de contacto
+  // El sitio es estático (GitHub Pages) y no tiene backend propio, así que
+  // el formulario envía a un proyecto Vercel aparte, creado solo para este
+  // endpoint (mismo patrón SMTP + nodemailer que el resto de la familia).
+  // Si al desplegar ese proyecto en Vercel te da una URL distinta a
+  // "depilfix-api.vercel.app", cambia la constante de abajo por la real.
+  var CONTACT_API_URL = 'https://depilfix-api.vercel.app/api/contact';
+
+  var contactForm = document.getElementById('contact-form');
+  var formStatus = document.getElementById('form-status');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (contactForm.website.value) return; // honeypot: bots rellenan este campo oculto
+
+      if (!contactForm.reportValidity()) return;
+
+      var submitBtn = contactForm.querySelector('button[type="submit"]');
+      var originalLabel = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando…';
+      formStatus.textContent = 'Enviando consulta…';
+      formStatus.removeAttribute('data-state');
+
+      var payload = Object.fromEntries(new FormData(contactForm).entries());
+
+      fetch(CONTACT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+        .then(function (response) {
+          return response.json().catch(function () { return {}; }).then(function (result) {
+            if (!response.ok || !result.ok) throw new Error(result.code || 'SEND_FAILED');
+          });
+        })
+        .then(function () {
+          formStatus.textContent = 'Consulta enviada correctamente. Te responderemos lo antes posible.';
+          formStatus.setAttribute('data-state', 'ok');
+          contactForm.reset();
+        })
+        .catch(function (error) {
+          console.error('DepilFix formulario:', error);
+          formStatus.textContent = 'No se pudo enviar la consulta. Puedes escribirnos por WhatsApp o llamarnos.';
+          formStatus.setAttribute('data-state', 'error');
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        });
+    });
+  }
+
   // Resaltar enlace de navegación activo al hacer scroll
   var sections = document.querySelectorAll('main section[id]');
   var navAnchors = document.querySelectorAll('.nav-links a');

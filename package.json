@@ -1,0 +1,13 @@
+{
+  "name": "depilfix-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Backend mínimo en Vercel para /api/contact del sitio estático de DepilFix (publicado por separado en GitHub Pages).",
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.14"
+  }
+}
