@@ -560,3 +560,4 @@ img,svg{ max-width:100%; display:block; }
 }
 /* Sin JavaScript, el contenido debe verse igualmente */
 .no-js .reveal{ opacity:1; transform:none; }
+.btn--quote:hover{filter:brightness(.88)}
